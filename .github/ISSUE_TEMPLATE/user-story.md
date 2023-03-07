@@ -1,12 +1,13 @@
 ---
 name: User Story
 about: 'To quickly add new user stories. '
-title: As a ... , I want ... , so ...
+title: [Feature #]
 labels: enhancement
 assignees: SiemLuc
 
 ---
 **Description**
+As a ... , I want ... , so ...
 
 **Acceptance Criteria**
 - Example criteria
