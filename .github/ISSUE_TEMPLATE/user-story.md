@@ -1,7 +1,7 @@
 ---
 name: User Story
 about: 'To quickly add new user stories. '
-title: [Feature #]
+title: Feature #
 labels: enhancement
 assignees: SiemLuc
 
