@@ -1,2 +1,3 @@
-# S6-SiemLucassen-Kwetter
-This project aims to implement a scalable microservice architecture with maintainability and data-security in mind.
+# kwetter-kweet-service
+
+This service provides REST calls to Create, Read, Update and Delete Kweets (Tweets).
