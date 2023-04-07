@@ -17,8 +17,8 @@ dependencies {
     implementation 'io.quarkus:quarkus-hibernate-orm-panache:2.16.4.Final'
     implementation 'io.quarkus:quarkus-jdbc-h2:2.16.4.Final'
     implementation 'org.apache.commons:commons-text:1.10.0'
-    testImplementation 'io.quarkus:quarkus-junit5'
-    testImplementation 'io.rest-assured:rest-assured'
+//    testImplementation 'io.quarkus:quarkus-junit'
+//    testImplementation 'io.rest-assured:rest-assu5red'
 }
 
 group 'siem.kwetter'

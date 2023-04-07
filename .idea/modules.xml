@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kweet-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/kweet-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kwetter-kweet-service.kweet-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/kwetter-kweet-service.kweet-service.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/siem.kwetter.kweet-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/siem.kwetter.kweet-service.main.iml" />
     </modules>
   </component>
