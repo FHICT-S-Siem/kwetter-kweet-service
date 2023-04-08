@@ -17,6 +17,7 @@ dependencies {
     implementation 'io.quarkus:quarkus-hibernate-orm-panache:2.16.4.Final'
     implementation 'io.quarkus:quarkus-jdbc-h2:2.16.4.Final'
     implementation 'org.apache.commons:commons-text:1.10.0'
+    implementation 'io.quarkus:quarkus-jdbc-postgresql:2.16.4.Final'
 //    testImplementation 'io.quarkus:quarkus-junit'
 //    testImplementation 'io.rest-assured:rest-assu5red'
 }

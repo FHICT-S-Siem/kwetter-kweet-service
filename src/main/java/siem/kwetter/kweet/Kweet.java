@@ -1,27 +1,23 @@
 package siem.kwetter.kweet;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
-import javax.persistence.Table;
 import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 @Entity
-@Table(name="kweet")
-@Data
-@Builder(toBuilder = true)
+//@Table(name="kweet")
+//@Data
+//@Builder(toBuilder = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class Kweet {
-    @Id
-    @GeneratedValue
-    private Long id;
+public class Kweet extends PanacheEntity {
+//    @Id
+//    @GeneratedValue
+//    public Long id;
     @Column(nullable = false)
-    private String message;
+    public String message;
 
     public Long getId() {
         return id;
