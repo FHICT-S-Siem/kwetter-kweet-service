@@ -1,14 +1,10 @@
 name: "kwetter-service CI"
 
 on:
-  workflow_dispatch: 
   push:
-    branches: [ main ]
-    paths: [ kwetter-kweet-service/** ]
-defaults: 
-  run: 
-    working-directory: kwetter-kweet-service
-
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   build:
