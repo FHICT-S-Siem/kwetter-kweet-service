@@ -13,6 +13,7 @@ import java.net.URI;
 import java.security.InvalidParameterException;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @AllArgsConstructor
 @Path("/api/v1/kweet")
@@ -24,13 +25,8 @@ public class KweetController {
 
     @GET
     public Response getKweets(
-//            @QueryParam("message") @DefaultValue("") String message
     ) {
-//        try {
-//            return Response.ok(kweetService.getKweets(message)).build();
-//        } catch (Exception e) {
-//            return Response.status(Status.BAD_REQUEST).build();
-//        }
+
         List<Kweet> kweets = Kweet.listAll();
         return Response.ok(kweets).build();
     }
@@ -38,16 +34,6 @@ public class KweetController {
     @GET
     @Path("/{id}")
     public Response getById(@PathParam("id") long id) {
-//        try {
-//            final var kweetByIdOpt = kweetService.findKweetById(id);
-//            if (kweetByIdOpt.isEmpty()) {
-//                return Response.status(Status.NOT_FOUND).build();
-//            }
-//
-//            return Response.ok(kweetByIdOpt.get()).build();
-//        } catch (Exception e) {
-//            return Response.status(Status.BAD_REQUEST).build();
-//        }
         return Kweet.findByIdOptional(id)
                 .map(kweet -> Response.ok(kweet).build())
                 .orElse(Response.status(Response.Status.NOT_FOUND).build());
@@ -61,31 +47,25 @@ public class KweetController {
             return Response.created(URI.create("/kweet" + kweet.id)).build();
         }
         return Response.status(Response.Status.BAD_REQUEST).build();
-
-//        try {
-//            kweetService.create(kweet);
-//            return Response.noContent().build();
-//        } catch (Exception e) {
-//            if (e instanceof InvalidAttributesException) {
-//                return Response.status(Status.CONFLICT).entity(Map.of("message", e.getMessage())).build();
-//            }
-//
-//            return Response.status(Status.BAD_REQUEST).build();
-//        }
     }
 
     @PUT
     @Path("/{id}")
     public Response replace(@PathParam("id") long id, Kweet kweet) {
         try {
-            return Response.ok(kweetService.replace(id, kweet)).build();
-        } catch (Exception e) {
-            if (e instanceof InvalidParameterException) {
-                return Response.status(Status.NOT_FOUND).entity(Map.of("message", e.getMessage())).build();
+            Optional<Kweet> foundKweet = Kweet.findByIdOptional(id);
+            if (foundKweet.isPresent()) {
+                Kweet r = foundKweet.get();
+                r.setMessage(kweet.message);
+                Kweet updatedKweet = kweetService.update(r);
+                return Response.ok(updatedKweet).build();
             }
 
-            return Response.status(Status.BAD_REQUEST).build();
-        }
+            return Response.status(Status.NOT_FOUND).build();
+
+        } catch (Exception e) {
+        return Response.status(Status.BAD_REQUEST).build();
+    }
     }
 
     @DELETE
@@ -97,10 +77,5 @@ public class KweetController {
             return Response.noContent().build();
         }
         return Response.status(Response.Status.BAD_REQUEST).build();
-//        var isDeleted = kweetService.delete(id);
-//        if (!isDeleted) {
-//            return Response.notModified().build();
-//        }
-//        return Response.noContent().build();
     }
 }

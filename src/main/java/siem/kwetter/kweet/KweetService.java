@@ -43,8 +43,7 @@ public class KweetService {
     }
 
     @Transactional
-    public Kweet replace(long id, Kweet kweet) {
-        kweet.setId(id);
+    public Kweet update(Kweet kweet) {
         return kweetRepository.update(kweet).orElseThrow(() -> new InvalidParameterException("Kweet not found"));
     }
 
