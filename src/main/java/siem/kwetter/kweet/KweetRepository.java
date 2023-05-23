@@ -26,7 +26,7 @@ public class KweetRepository implements PanacheRepository<Kweet>{
     }
 
     public Optional<Kweet> update(Kweet kweet) {
-        final var id = kweet.getId();
+        final var id = kweet.id;
         var savedOpt = this.findByIdOptional(id);
         if (savedOpt.isEmpty()) {
             return Optional.empty();
