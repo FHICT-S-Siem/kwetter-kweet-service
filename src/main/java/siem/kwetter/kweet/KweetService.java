@@ -33,7 +33,7 @@ public class KweetService {
 
     @Transactional
     public void create(Kweet kweet) throws InvalidAttributesException {
-        if (kweet.getId() != null) {
+        if (kweet.id != null) {
             throw new InvalidAttributesException("Id must not be filled");
         }
         Validate.notNull(kweet, "Kweet can not be null");
