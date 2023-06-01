@@ -2,7 +2,7 @@
 
 This service provides REST calls to Create, Read, Update and Delete Kweets (Tweets).
 
-## GitHub Actions - Building Gradle CI
+## GitHub Actions - Building Gradle CI 
 Building the CI with Gradle requires an additional step, making a gradlew executable.
 
 ```
