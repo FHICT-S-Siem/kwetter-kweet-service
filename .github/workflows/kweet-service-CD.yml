@@ -1,4 +1,4 @@
-name: "kwetter-service CI"
+name: "kwetter-service CD"
 
 on:
   push:
@@ -24,6 +24,9 @@ jobs:
 
     - name: Build & Test with Gradle 👷‍♂️ 
       run: ./gradlew build
+    
+    - name: SonarQube Quality Gate Check 🧪
+      uses: SonarSource/sonarqube-quality-gate-action@v1.1.0
 
     - name: Set up Docker Buildx kit 🛠️ 
       uses: docker/setup-buildx-action@v1
