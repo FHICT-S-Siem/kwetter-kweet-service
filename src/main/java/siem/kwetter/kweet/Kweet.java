@@ -10,14 +10,8 @@ import javax.persistence.Column;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Kweet extends PanacheEntity {
-
     @Column(nullable = false)
     public String message;
-
-//    public void setId(Long id) {
-//        this.id = id;
-//    }
-
     public String getMessage() {
         return message;
     }
