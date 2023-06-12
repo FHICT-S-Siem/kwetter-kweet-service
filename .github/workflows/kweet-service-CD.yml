@@ -49,11 +49,14 @@ jobs:
         echo $DOCKER_USERNAME
         echo $DOCKER_PASSWORD
         echo $PRODUCT_REPO_NAME
+        
     - name: Docker login
       run: |
         docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        
     - name: Build kweet service docker image
       run: docker build . --file Dockerfile -t "$DOCKER_USERNAME/$PRODUCT_REPO_NAME:latest"
+      
     - name: Push kweet service docker image
       run: docker push "$DOCKER_USERNAME/$PRODUCT_REPO_NAME:latest"
 
