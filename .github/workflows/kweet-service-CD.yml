@@ -55,8 +55,8 @@ jobs:
         context: .
         push: true
         tags: siem228/kwetter:latest
-        username: ${{ DOCKER_USERNAME }}
-        password: ${{ DOCKER_PASSWORD }}
+        username: $DOCKER_USERNAME
+        password: $DOCKER_PASSWORD
         
 #     
         
