@@ -25,5 +25,8 @@ jobs:
     - name: Make gradlew executable 😅
       run: chmod +x ./gradlew
 
-    - name: Build & Test with Gradle 👷‍♂️
+    - name: Build & Test with Gradle 👷‍♂️ 
       run: ./gradlew build
+    
+    - name: SonarQube Quality Gate Check 🧪
+      uses: SonarSource/sonarqube-quality-gate-action@v1.1.0
