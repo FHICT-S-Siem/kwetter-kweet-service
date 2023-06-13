@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'io.quarkus'
+    id "org.sonarqube" version "4.2.0.3129"
 }
 
 repositories {
@@ -50,4 +51,12 @@ compileJava {
 
 compileTestJava {
     options.encoding = 'UTF-8'
+}
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "FHICT-S-Siem_kwetter-kweet-service"
+        property "sonar.organization", "fhict-s-siem"
+        property "sonar.host.url", "https://sonarcloud.io"
+    }
 }
