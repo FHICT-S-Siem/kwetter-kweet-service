@@ -34,10 +34,3 @@ jobs:
 
       - name: Push kweet service docker image
         run: docker push "$DOCKER_USERNAME/$PRODUCT_REPO_NAME:latest"
-
-#     - name: Login to Neuralm Docker registry 🔑
-#       uses: docker/login-action@v1
-#       with:
-#         registry: ${{ secrets.NEURALM_REGISTRY }}
-#         username: ${{ secrets.NEURALM_DOCKER_USERNAME }}
-#         password: ${{ secrets.NEURALM_DOCKER_PASSWORD }}
