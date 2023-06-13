@@ -1,17 +1,18 @@
 name: "kwetter-service CD"
-
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
   workflow_dispatch:
+  
 env:
   DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
   DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
   PRODUCT_REPO_NAME: ${{secrets.PRODUCT_REPO_NAME}}
+  
 jobs:
-  build:
+  create-kwetterservice-image:
     name: Build 
     runs-on: ubuntu-latest
     environment: Production
