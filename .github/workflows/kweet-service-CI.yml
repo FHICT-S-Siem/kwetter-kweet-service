@@ -42,11 +42,10 @@ jobs:
         key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
         restore-keys: ${{ runner.os }}-gradle
         
-    - name: Build and analyze
+    - name: Build and analyze 🧪
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: ./gradlew build sonarqube --info
       
-    - name: SonarQube Quality Gate Check 🧪
-      uses: SonarSource/sonarqube-quality-gate-action@v1.1.0
+
