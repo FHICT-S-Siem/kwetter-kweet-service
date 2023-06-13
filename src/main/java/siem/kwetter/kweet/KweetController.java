@@ -26,7 +26,6 @@ public class KweetController {
     @GET
     public Response getKweets(
     ) {
-
         List<Kweet> kweets = Kweet.listAll();
         return Response.ok(kweets).build();
     }
@@ -42,6 +41,8 @@ public class KweetController {
     @POST
     @Transactional
     public Response create(Kweet kweet) {
+
+        System.out.println("kweet" + kweet.toString());
         Kweet.persist(kweet);
         if (kweet.isPersistent()){
             return Response.created(URI.create("/kweet" + kweet.id)).build();
@@ -74,6 +75,17 @@ public class KweetController {
     public Response update(@PathParam("id") long id) {
         boolean deleted = Kweet.deleteById(id);
         if(deleted){
+            return Response.noContent().build();
+        }
+        return Response.status(Response.Status.BAD_REQUEST).build();
+    }
+
+    @DELETE
+    @Transactional
+    public Response deleteAll() {
+        long deleted = Kweet.deleteAll();
+        System.out.println(deleted);
+        if(deleted > 0){
             return Response.noContent().build();
         }
         return Response.status(Response.Status.BAD_REQUEST).build();
